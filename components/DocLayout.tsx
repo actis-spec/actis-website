@@ -7,7 +7,7 @@ interface DocLayoutProps {
 
 export function DocLayout({ title, children }: DocLayoutProps) {
   return (
-    <article className="max-w-[65ch] mx-auto px-6 py-12">
+    <article className="max-w-content mx-auto px-6 py-12">
       {title && (
         <h1 className="text-2xl font-semibold text-[#1a1a1a] mb-8">{title}</h1>
       )}

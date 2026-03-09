@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <div className="max-w-[640px] mx-auto px-6 py-16">
+    <div className="max-w-content mx-auto px-6 py-16">
       <section className="mb-12">
         <h1 className="text-2xl font-semibold text-[#1a1a1a] mb-1">
           ACTIS v1.0

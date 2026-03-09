@@ -18,7 +18,7 @@ export default function SpecPage() {
   const compatibilityContent = readFileSync(compatibilityPath, "utf-8");
 
   return (
-    <article className="max-w-[65ch] mx-auto px-6 py-12">
+    <article className="max-w-content mx-auto px-6 py-12">
       <h1 className="text-2xl font-semibold text-[#1a1a1a] mb-2">
         ACTIS v1.0 Specification
       </h1>

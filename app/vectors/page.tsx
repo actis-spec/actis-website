@@ -61,7 +61,7 @@ const vectors = [
 
 export default function VectorsPage() {
   return (
-    <div className="max-w-[65ch] mx-auto px-6 py-12">
+    <div className="max-w-content mx-auto px-6 py-12">
       <h1 className="text-2xl font-semibold text-[#1a1a1a] mb-6">
         Test Vectors
       </h1>

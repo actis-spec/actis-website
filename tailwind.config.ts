@@ -15,7 +15,7 @@ const config: Config = {
       },
       maxWidth: {
         prose: "65ch",
-        content: "680px",
+        content: "72rem", /* 1152px — full-width layout */
       },
     },
   },

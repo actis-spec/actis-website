@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function SchemasPage() {
   return (
-    <div className="max-w-[65ch] mx-auto px-6 py-12">
+    <div className="max-w-content mx-auto px-6 py-12">
       <h1 className="text-2xl font-semibold text-[#1a1a1a] mb-6">
         ACTIS Transcript Schema
       </h1>

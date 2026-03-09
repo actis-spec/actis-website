@@ -12,16 +12,11 @@ const repos = [
     description: "Reference verifier implementation in Rust.",
     url: "https://github.com/actis-spec/actis-verifier-rust",
   },
-  {
-    name: "actis-spec/actis-website",
-    description: "Source for actis.world.",
-    url: "https://github.com/actis-spec/actis-website",
-  },
 ];
 
 export default function GitHubPage() {
   return (
-    <div className="max-w-[65ch] mx-auto px-6 py-12">
+    <div className="max-w-content mx-auto px-6 py-12">
       <h1 className="text-2xl font-semibold text-[#1a1a1a] mb-6">
         Repositories
       </h1>
