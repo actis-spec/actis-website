@@ -1,15 +1,18 @@
 import Link from "next/link";
 
+const ARTIFACT_BASE = "https://actis.world";
+
 export default function HomePage() {
   return (
     <div className="max-w-content mx-auto px-6 py-16">
       <section className="mb-12">
         <h1 className="text-2xl font-semibold text-[#1a1a1a] mb-1">
-          ACTIS v1.0
+          ACTIS
         </h1>
         <p className="text-lg text-[#1a1a1a]">
           Audit-Compliant Transaction Integrity Standard
         </p>
+        <p className="text-sm text-[#666] mt-2">Version 1.0.0</p>
       </section>
 
       <p className="text-lg text-[#1a1a1a] mb-8">
@@ -23,6 +26,84 @@ export default function HomePage() {
           intact and deterministically reproducible?&rdquo;
         </p>
       </div>
+
+      <section className="mb-10">
+        <h2 className="text-lg font-semibold text-[#1a1a1a] mb-4">
+          What ACTIS Guarantees
+        </h2>
+        <p className="text-[#1a1a1a] mb-3">
+          ACTIS provides a deterministic, offline-verifiable method to confirm:
+        </p>
+        <ul className="list-disc pl-5 space-y-1 text-[#1a1a1a]">
+          <li>A transaction transcript is structurally valid</li>
+          <li>The transcript&apos;s cryptographic hash chain is intact</li>
+          <li>All signatures verify against the recorded envelope hashes</li>
+          <li>Deterministic replay produces the same final hash</li>
+          <li>The evidence bundle has not been modified</li>
+        </ul>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-lg font-semibold text-[#1a1a1a] mb-4">
+          Independent Implementations
+        </h2>
+        <p className="text-[#1a1a1a] mb-3">
+          ACTIS v1.0 currently has multiple implementations.
+        </p>
+        <ul className="list-disc pl-5 space-y-1 text-[#1a1a1a]">
+          <li>
+            <a
+              href="https://github.com/actis-spec/actis-verifier-rust"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              Rust verifier
+            </a>
+          </li>
+        </ul>
+        <p className="text-sm text-[#666] mt-3">
+          Additional implementations are encouraged and may be listed here.
+        </p>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-lg font-semibold text-[#1a1a1a] mb-4">
+          Specification Artifacts
+        </h2>
+        <ul className="space-y-2 text-[#1a1a1a]">
+          <li>
+            <span className="font-medium">Specification</span>{" "}
+            <Link href="/spec" className="underline">
+              {ARTIFACT_BASE}/spec
+            </Link>
+          </li>
+          <li>
+            <span className="font-medium">Transcript Schema</span>{" "}
+            <Link href="/schemas" className="underline">
+              {ARTIFACT_BASE}/schemas
+            </Link>
+          </li>
+          <li>
+            <span className="font-medium">Test Vector Corpus</span>{" "}
+            <Link href="/vectors" className="underline">
+              {ARTIFACT_BASE}/vectors
+            </Link>
+          </li>
+          <li>
+            <span className="font-medium">Governance</span>{" "}
+            <Link href="/governance" className="underline">
+              {ARTIFACT_BASE}/governance
+            </Link>
+          </li>
+          <li>
+            <span className="font-medium">IP Commitment</span>{" "}
+            <Link href="/ip" className="underline">
+              {ARTIFACT_BASE}/ip
+            </Link>
+          </li>
+        </ul>
+      </section>
 
       <nav className="flex flex-wrap gap-x-6 gap-y-2 mb-12 text-sm" aria-label="Quick links">
         <Link href="/spec" className="text-[#1a1a1a] underline hover:no-underline">

@@ -4,6 +4,17 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-[#e5e5e5] bg-white mt-auto">
       <div className="max-w-content mx-auto px-6 py-6 text-sm text-[#1a1a1a]">
+        <p className="text-[#666] mb-2">
+          Specification source:{" "}
+          <a
+            href="https://github.com/actis-spec/actis"
+            className="hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            github.com/actis-spec/actis
+          </a>
+        </p>
         <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
           <span>ACTIS Standard</span>
           <span aria-hidden>·</span>

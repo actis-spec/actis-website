@@ -65,6 +65,20 @@ export default function VectorsPage() {
       <h1 className="text-2xl font-semibold text-[#1a1a1a] mb-6">
         Test Vectors
       </h1>
+
+      <section className="mb-8">
+        <h2 className="text-lg font-semibold text-[#1a1a1a] mb-3">
+          ACTIS Conformance Corpus
+        </h2>
+        <p className="text-[#1a1a1a] mb-2">
+          The ACTIS test vector corpus allows independent implementations to
+          verify their correctness against the ACTIS specification.
+        </p>
+        <p className="text-[#1a1a1a] font-medium">
+          All conforming implementations MUST pass this corpus.
+        </p>
+      </section>
+
       <p className="text-[#1a1a1a] mb-10">
         The ACTIS v1.0 conformance test vector corpus provides eight reference
         bundles covering all conformance levels and failure modes. ACTIS verifier

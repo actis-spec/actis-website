@@ -1,7 +1,6 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import Link from "next/link";
-import { DocLayout } from "@/components/DocLayout";
 import { Markdown } from "@/components/Markdown";
 
 const GITHUB_RAW =
@@ -25,6 +24,18 @@ export default function SpecPage() {
       <p className="text-sm text-[#666] mb-6">
         Version 1.0 · Normative
       </p>
+      <p className="text-[#1a1a1a] mb-4">
+        This page contains the normative ACTIS specification.
+      </p>
+      <p className="text-[#1a1a1a] mb-4">
+        The ACTIS specification defines:
+      </p>
+      <ul className="list-disc pl-5 space-y-1 text-[#1a1a1a] mb-8">
+        <li>transcript structure</li>
+        <li>verification rules</li>
+        <li>report output format</li>
+        <li>compatibility requirements</li>
+      </ul>
       <p className="text-sm text-[#1a1a1a] mb-8">
         <Link
           href={`${GITHUB_RAW}/ACTIS_STANDARD_v1.md`}
