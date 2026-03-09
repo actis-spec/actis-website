@@ -7,7 +7,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "ACTIS — Audit-Compliant Transaction Integrity Standard",
+  title: "ACTIS — Autonomous Coordination & Transaction Integrity Standard",
   description:
     "Vendor-neutral standard for cryptographic integrity verification and deterministic replay of transaction evidence.",
   icons: { icon: "/favicon.svg" },

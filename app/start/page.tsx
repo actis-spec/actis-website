@@ -34,7 +34,7 @@ export default function StartPage() {
         <h3 className="text-base font-semibold text-[#1a1a1a] mb-2">
           Example
         </h3>
-        <pre className="bg-[#f5f5f5] border border-[#e5e5e5] p-4 rounded text-sm font-mono text-[#1a1a1a] overflow-x-auto">
+        <pre className="bg-emerald-50/80 border border-emerald-200 p-4 rounded text-sm font-mono text-[#1a1a1a] overflow-x-auto">
           actis-verify --zip tv-001-compatible-minimal.zip
         </pre>
       </section>

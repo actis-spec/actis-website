@@ -11,7 +11,7 @@ export function Markdown({ content }: MarkdownProps) {
       remarkPlugins={[remarkGfm]}
       components={{
         pre: ({ children }) => (
-          <pre className="bg-[#f5f5f5] border border-[#e5e5e5] p-4 rounded text-sm overflow-x-auto font-mono">
+          <pre className="bg-emerald-50/80 border border-emerald-200 p-4 rounded text-sm overflow-x-auto font-mono text-[#1a1a1a]">
             {children}
           </pre>
         ),
@@ -20,14 +20,18 @@ export function Markdown({ content }: MarkdownProps) {
           if (isInline) {
             return (
               <code
-                className="bg-[#f5f5f5] border border-[#e5e5e5] px-1.5 py-0.5 rounded text-sm font-mono"
+                className="bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded text-sm font-mono text-[#1a1a1a]"
                 {...props}
               >
                 {children}
               </code>
             );
           }
-          return <code className={className} {...props}>{children}</code>;
+          return (
+            <code className={`${className ?? ""} text-[#1a1a1a]`} {...props}>
+              {children}
+            </code>
+          );
         },
         table: ({ children }) => (
           <div className="overflow-x-auto my-4">

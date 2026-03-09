@@ -12,7 +12,7 @@ export default function SchemasPage() {
         <h2 className="text-lg font-semibold text-[#1a1a1a] mb-2">
           Schema Identifier
         </h2>
-        <pre className="bg-[#f5f5f5] border border-[#e5e5e5] p-4 rounded text-sm font-mono text-[#1a1a1a] mb-2">
+        <pre className="bg-emerald-50/80 border border-emerald-200 p-4 rounded text-sm font-mono text-[#1a1a1a] mb-2">
           {`$schema_id: actis-transcript/1.0`}
         </pre>
         <p className="text-[#1a1a1a] text-sm">
@@ -29,7 +29,7 @@ export default function SchemasPage() {
         schema is the canonical machine-readable definition of the
         actis-transcript/1.0 format.
       </p>
-      <pre className="bg-[#f5f5f5] border border-[#e5e5e5] p-4 rounded text-sm font-mono text-[#1a1a1a] mb-8">
+      <pre className="bg-emerald-50/80 border border-emerald-200 p-4 rounded text-sm font-mono text-[#1a1a1a] mb-8">
         {`"$id": "actis-transcript/1.0/schema.json"`}
       </pre>
       <p className="mb-2">
@@ -41,8 +41,8 @@ export default function SchemasPage() {
           Download actis_transcript_v1.json →
         </Link>
       </p>
-      <p className="text-sm text-[#666]">
-        SHA-256: [leave blank — to be filled in before deployment]
+      <p className="text-sm text-[#666] font-mono">
+        SHA-256: 16a758d1eb9803eeb124acef7875f354210d887381b0c7f6e12f0760fffbd216
       </p>
     </div>
   );

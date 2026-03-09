@@ -9,15 +9,6 @@ export default function IPPage() {
 
   return (
     <DocLayout title="IP Commitment">
-      <section className="mb-8">
-        <h2 className="text-lg font-semibold text-[#1a1a1a] mb-3">
-          Patent Non-Assert Commitment
-        </h2>
-        <p className="text-[#1a1a1a]">
-          The ACTIS Maintainers irrevocably commit not to assert patent claims
-          necessary to implement the ACTIS v1.x specification.
-        </p>
-      </section>
       <Markdown content={content} />
     </DocLayout>
   );

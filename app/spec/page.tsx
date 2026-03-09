@@ -55,7 +55,20 @@ export default function SpecPage() {
         </Link>
       </p>
       <div className="prose prose-neutral max-w-none prose-headings:font-semibold prose-headings:text-[#1a1a1a] prose-pre:bg-[#f5f5f5] prose-pre:border prose-pre:border-[#e5e5e5] prose-pre:text-sm prose-table:border-collapse prose-th:border prose-th:border-[#e5e5e5] prose-th:bg-[#fafafa] prose-td:border prose-td:border-[#e5e5e5]">
+        <h2 className="text-xl font-semibold text-[#1a1a1a] mt-10 mb-4">
+          Part I — Core Specification
+        </h2>
+        <p className="text-sm text-[#666] mb-6">
+          ACTIS_STANDARD_v1.md
+        </p>
         <Markdown content={standardContent} />
+
+        <h2 className="text-xl font-semibold text-[#1a1a1a] mt-12 mb-4">
+          Part II — Compatibility and Verification Algorithms
+        </h2>
+        <p className="text-sm text-[#666] mb-6">
+          ACTIS_COMPATIBILITY.md
+        </p>
         <Markdown content={compatibilityContent} />
       </div>
     </article>

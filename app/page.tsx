@@ -10,20 +10,20 @@ export default function HomePage() {
           ACTIS
         </h1>
         <p className="text-lg text-[#1a1a1a]">
-          Audit-Compliant Transaction Integrity Standard
+          Autonomous Coordination & Transaction Integrity Standard
         </p>
-        <p className="text-sm text-[#666] mt-2">Version 1.0.0</p>
+        <p className="text-sm text-[#666] mt-2">Version 1.0</p>
       </section>
 
       <p className="text-lg text-[#1a1a1a] mb-8">
-        Vendor-neutral standard for cryptographic integrity verification and
-        deterministic replay of transaction evidence.
+        ACTIS defines a deterministic verification procedure for autonomous
+        transaction evidence bundles.
       </p>
 
       <div className="border-l-4 border-[#e5e5e5] pl-4 py-2 mb-12 text-[#1a1a1a]">
         <p className="font-medium">
-          ACTIS answers one question: &ldquo;Is this evidence cryptographically
-          intact and deterministically reproducible?&rdquo;
+          ACTIS provides a deterministic, vendor-neutral procedure for verifying
+          the integrity and reproducibility of autonomous transaction evidence.
         </p>
       </div>
 
@@ -122,7 +122,7 @@ export default function HomePage() {
 
       <dl className="space-y-8 text-[#1a1a1a]">
         <div>
-          <dt className="font-semibold mb-2">What ACTIS proves</dt>
+          <dt className="font-semibold mb-2">What ACTIS verifies</dt>
           <dd className="space-y-1 text-sm">
             <ul className="list-disc pl-5 space-y-1">
               <li>Integrity of evidence bundles</li>

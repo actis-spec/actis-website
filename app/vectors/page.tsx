@@ -77,6 +77,18 @@ export default function VectorsPage() {
         <p className="text-[#1a1a1a] font-medium">
           All conforming implementations MUST pass this corpus.
         </p>
+        <p className="text-[#1a1a1a] text-sm mt-3">
+          The{" "}
+          <a
+            href="https://github.com/actis-spec/actis-verifier-rust"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            Rust verifier
+          </a>{" "}
+          currently passes the full v1.0 corpus (8/8 vectors).
+        </p>
       </section>
 
       <p className="text-[#1a1a1a] mb-10">
