@@ -6,7 +6,7 @@
 
 ## Licensing (repository and specification)
 
-The ACTIS specification and documentation in this repository are licensed under the Apache License, Version 2.0 (see the repository [LICENSE](../LICENSE)). You may use, copy, and distribute the specification under the terms of that license. The **patent non-assert commitment** below is separate from and in addition to the Apache-2.0 license; it addresses patent claims, not copyright.
+The ACTIS specification and documentation in this repository are licensed under the Apache License, Version 2.0 (see the repository [LICENSE](https://github.com/actis-spec/actis/blob/main/LICENSE)). You may use, copy, and distribute the specification under the terms of that license. The **patent non-assert commitment** below is separate from and in addition to the Apache-2.0 license; it addresses patent claims, not copyright.
 
 ---
 

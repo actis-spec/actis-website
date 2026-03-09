@@ -1,10 +1,10 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import Link from "next/link";
-import { Markdown } from "@/components/Markdown";
+import { SpecTabs } from "@/components/SpecTabs";
 
-const GITHUB_RAW =
-  "https://github.com/actis-spec/actis/raw/main/docs";
+const GITHUB_ACTIS_SPEC = "https://github.com/actis-spec/actis";
+const GITHUB_DOCS = `${GITHUB_ACTIS_SPEC}/blob/main/docs`;
 
 export default function SpecPage() {
   const standardPath = join(process.cwd(), "content", "ACTIS_STANDARD_v1.md");
@@ -38,7 +38,7 @@ export default function SpecPage() {
       </ul>
       <p className="text-sm text-[#1a1a1a] mb-8">
         <Link
-          href={`${GITHUB_RAW}/ACTIS_STANDARD_v1.md`}
+          href={`${GITHUB_DOCS}/ACTIS_STANDARD_v1.md`}
           target="_blank"
           rel="noopener noreferrer"
           className="underline mr-4"
@@ -46,7 +46,7 @@ export default function SpecPage() {
           View ACTIS_STANDARD_v1.md
         </Link>
         <Link
-          href={`${GITHUB_RAW}/ACTIS_COMPATIBILITY.md`}
+          href={`${GITHUB_DOCS}/ACTIS_COMPATIBILITY.md`}
           target="_blank"
           rel="noopener noreferrer"
           className="underline"
@@ -54,23 +54,10 @@ export default function SpecPage() {
           View ACTIS_COMPATIBILITY.md
         </Link>
       </p>
-      <div className="prose prose-neutral max-w-none prose-headings:font-semibold prose-headings:text-[#1a1a1a] prose-pre:bg-[#f5f5f5] prose-pre:border prose-pre:border-[#e5e5e5] prose-pre:text-sm prose-table:border-collapse prose-th:border prose-th:border-[#e5e5e5] prose-th:bg-[#fafafa] prose-td:border prose-td:border-[#e5e5e5]">
-        <h2 className="text-xl font-semibold text-[#1a1a1a] mt-10 mb-4">
-          Part I — Core Specification
-        </h2>
-        <p className="text-sm text-[#666] mb-6">
-          ACTIS_STANDARD_v1.md
-        </p>
-        <Markdown content={standardContent} />
-
-        <h2 className="text-xl font-semibold text-[#1a1a1a] mt-12 mb-4">
-          Part II — Compatibility and Verification Algorithms
-        </h2>
-        <p className="text-sm text-[#666] mb-6">
-          ACTIS_COMPATIBILITY.md
-        </p>
-        <Markdown content={compatibilityContent} />
-      </div>
+      <SpecTabs
+        standardContent={standardContent}
+        compatibilityContent={compatibilityContent}
+      />
     </article>
   );
 }

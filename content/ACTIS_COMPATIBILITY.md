@@ -44,7 +44,7 @@ No transcript-level fields (e.g. `transcript_id`, `intent_id`) are part of the e
 ### 2.2 Serialization and Digest
 
 1. Build the envelope object from the round by taking only the included keys listed in §2.1 (with the same values as in the round). Omit any key not present in the round.
-2. Serialize the envelope object to canonical JSON per RFC 8785 (JSON Canonicalization Scheme, JCS): deterministic key ordering, no unnecessary whitespace, deterministic encoding of numbers and strings. Implementations MUST use an RFC 8785–compliant canonicalizer (or equivalent that produces the same output).
+2. Serialize the envelope object to canonical JSON per RFC 8785 (JSON Canonicalization Scheme, JCS): deterministic key ordering, no unnecessary whitespace, deterministic encoding of numbers and strings. Implementations MUST use an RFC 8785–compliant canonicalizer (or equivalent that produces the same output). Strings MUST be interpreted exactly as encoded in the JSON document without Unicode normalization.
 3. Compute SHA-256 over the UTF-8 encoding of the canonical JSON string.
 4. Encode the digest as exactly 64 lowercase hexadecimal characters (no prefix, no spaces).
 
@@ -122,11 +122,15 @@ final_hash = to_lower_hex( SHA-256( utf8( canonical_json( transcript_for_hash ) 
 
 ---
 
-## 5. Bundle and Checksum Rules
+## 5. Manifest and Bundle Rules
 
-- Checksums in the bundle (e.g. `checksums.sha256`) apply only to files listed in the manifest’s core file list. Only those paths are in the ACTIS verification surface. Unlisted files MUST NOT affect actis_status; verifiers SHOULD warn when unlisted files are present.
+**Manifest:** The bundle MUST contain a `manifest.json` at the root (or path declared in the bundle format). The manifest MUST include a `core_files` array: relative paths, unique, forward slashes, no `../`, no absolute or drive paths. The minimal ACTIS core set is `["checksums.sha256", "manifest.json", "input/transcript.json"]`. See [ACTIS_AUDITOR_PACK.md](./ACTIS_AUDITOR_PACK.md) §2 and schema [actis/schemas/actis_manifest_v1.json](../schemas/actis_manifest_v1.json). The checksum file (e.g. `checksums.sha256`) MUST NOT list itself; it lists the other core files only.
+
+**Bundle security:**
+
+- Checksums apply only to paths listed in `core_files`. Only those paths are in the ACTIS verification surface. Unlisted files MUST NOT affect actis_status; verifiers SHOULD warn when unlisted files are present.
 - Core file paths in the manifest MUST be unique. Duplicate archive entries for the same core path MUST result in ACTIS_NONCOMPLIANT. Symlinks for core paths MUST be rejected. Path traversal (e.g. `../`, absolute paths, drive prefixes) in core paths MUST be rejected.
-- ACTIS_COMPATIBLE means the verified core surface (transcript, hash chain, signatures, listed checksums) is intact. It does not imply that the entire archive is safe to execute or trust beyond that surface.
+- ACTIS_COMPATIBLE means the verified core surface (transcript, hash chain, signatures, listed checksums) is intact. It does not imply that the entire archive is safe to execute or trust beyond that surface. Verifiers MAY add a warning (e.g. in `warnings`) when unlisted or suspicious entries are present.
 
 ---
 

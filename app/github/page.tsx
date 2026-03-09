@@ -10,7 +10,7 @@ const repos = [
   {
     name: "actis-spec/actis-verifier-rust",
     description:
-      "Reference verifier implementation in Rust. Currently passes the full ACTIS v1.0 corpus (8/8 vectors).",
+      "Reference verifier implementation in Rust. Currently passes the full ACTIS v1.0 corpus (11/11 vectors).",
     url: "https://github.com/actis-spec/actis-verifier-rust",
   },
 ];

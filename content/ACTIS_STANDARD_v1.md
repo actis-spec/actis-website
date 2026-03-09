@@ -76,7 +76,7 @@ Full definitions and stability rules: [ACTIS_CANONICAL_IDS.md](../ACTIS_CANONICA
 - A **transcript** is a JSON document that represents a single negotiation or transaction session.
 - It MUST be hash-linked: each round (or equivalent unit) MUST include or reference a content hash; the chain MUST link to a final hash.
 - It MUST include signature material so that each required signer's contribution can be verified.
-- Schema and version requirements are defined by the transcript schema in use (e.g. a versioned transcript format). ACTIS verifiers MUST validate schema and version before reporting integrity.
+- Schema and version requirements are defined by the transcript schema in use (e.g. a versioned transcript format). ACTIS verifiers MUST validate schema and version before reporting integrity. Strings MUST be interpreted exactly as encoded in the JSON document without Unicode normalization.
 
 ### 3.2 Manifest
 
@@ -105,7 +105,7 @@ Verification outcomes MUST be computed using the algorithms defined in [ACTIS_CO
 
 - **Checksums:** All paths in the manifest's core set (or default core set) MUST be present in the bundle and MUST match the checksums in the bundle's checksum file.
 - **Hash chain:** The transcript's hash chain MUST be valid (each round's hash matches recomputation; final hash consistent).
-- **Signatures:** All required signatures on the transcript MUST verify. Signatures are over the round's **envelope_hash**; the construction of envelope_hash is defined in [ACTIS_COMPATIBILITY.md](./ACTIS_COMPATIBILITY.md#2-envelope-hash-construction).
+- **Signatures:** All required signatures on the transcript MUST verify. Signatures are over the round’s **envelope_hash**; the construction of envelope_hash is defined in [ACTIS_COMPATIBILITY.md](./ACTIS_COMPATIBILITY.md#2-envelope-hash-construction).
 - **Replay:** For v1.0, replay is hash-chain recomputation only: recompute round hashes and final_hash (if present) and confirm equality with claimed values. For v1.0, `replay_ok` SHALL equal `hash_chain_ok`. Signature validity is reported via `signatures_ok` only. See [ACTIS_COMPATIBILITY.md](./ACTIS_COMPATIBILITY.md) for normative algorithms (envelope hash, round/transcript hashing, signature verification, and actis_status decision tree).
 
 A bundle passes ACTIS verification if and only if all of the above hold. No other criteria (e.g. presence or content of optional files) may affect the ACTIS pass/fail result.

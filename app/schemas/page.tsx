@@ -41,6 +41,20 @@ export default function SchemasPage() {
           Download actis_transcript_v1.json →
         </Link>
       </p>
+      <p className="text-sm text-[#666] mb-2">
+        Canonical source:{" "}
+        <Link
+          href="https://github.com/actis-spec/actis/blob/main/schemas/actis_transcript_v1.json"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:no-underline"
+        >
+          github.com/actis-spec/actis (schemas/actis_transcript_v1.json)
+        </Link>
+      </p>
+      <p className="text-sm text-[#666] mb-1">
+        The digest below is the SHA-256 of the downloadable file on this page.
+      </p>
       <p className="text-sm text-[#666] font-mono">
         SHA-256: 16a758d1eb9803eeb124acef7875f354210d887381b0c7f6e12f0760fffbd216
       </p>
