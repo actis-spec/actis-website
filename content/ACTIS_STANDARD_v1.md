@@ -184,3 +184,39 @@ The canonical ACTIS verification report is a single JSON object. No key in this 
 Non-normative examples: multiple implementations may exist. ACTIS conformance is determined by the normative documents and the test vector corpus; no specific implementation is required.
 
 *ACTIS is an open standard. Contributions and implementations from any party are welcome.*
+
+---
+
+## Section 6 — Domain Profiles
+
+### Overview
+
+ACTIS/v1 is the base protocol: hash chain, signing, and verification. This section is **additive only** — the base wire format, hash chain algorithm (sha256 chaining over ordered round hashes), and signature scheme (Ed25519) are unchanged and remain the single source of truth for all profiles.
+
+**Profiles** are named sets of valid round types designed for a specific domain. A profile constrains which `round_type` values are legal within a bundle and may mandate additional header fields. All profiles share the same base wire format and cryptographic guarantees.
+
+### Profile Declaration
+
+A bundle MUST declare its profile in the transcript header:
+
+```json
+{ "actis_profile": "commerce" | "data" | "composite" }
+```
+
+If `actis_profile` is absent, the default is `"commerce"` — ensuring full backward compatibility with all existing bundles.
+
+### Profile Registry
+
+| Profile name | Description | Spec |
+|---|---|---|
+| `commerce` | Default. Multi-party commerce negotiation (INTENT → PROPOSE → ACCEPT → SETTLE). | This document, Sections 1–5 |
+| `data` | Data provenance and chain-of-custody for multi-party data flows. | `ACTIS_DATA_PROFILE_v1.md` |
+| `composite` | Parent bundles that reference multiple child bundles and assert a top-level outcome. | `ACTIS_COMPOSITE_PROFILE_v1.md` |
+
+### Rules
+
+- All profiles inherit the base hash chain algorithm and signature scheme without modification.
+- A bundle MUST NOT mix round types from different profiles within a single transcript.
+- Profile-specific validation rules (round ordering, required fields) are defined in each profile's spec document.
+- The `actis_profile` field is part of the transcript header and MUST be included in the hash chain computation.
+- Verifiers that do not recognise a profile name MUST treat the bundle as `ACTIS_PARTIAL` rather than `ACTIS_NONCOMPLIANT`.
