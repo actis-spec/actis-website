@@ -220,3 +220,26 @@ If `actis_profile` is absent, the default is `"commerce"` — ensuring full back
 - Profile-specific validation rules (round ordering, required fields) are defined in each profile's spec document.
 - The `actis_profile` field is part of the transcript header and MUST be included in the hash chain computation.
 - Verifiers that do not recognise a profile name MUST treat the bundle as `ACTIS_PARTIAL` rather than `ACTIS_NONCOMPLIANT`.
+
+---
+
+## Section 7 — Known Integrations
+
+This section lists known implementations of ACTIS evidence capture for specific payment rails and commerce protocols. All implementations use the `commerce` profile unless noted.
+
+| Protocol | Description | Package | Round sequence |
+|----------|-------------|---------|----------------|
+| **x402** | HTTP 402 payment standard (Coinbase). Supported by Cloudflare, Anthropic, Visa. | `@pact/x402-evidence` | INTENT → PROPOSE → ACCEPT → SETTLE |
+| **MPP** | Model Payment Protocol (Stripe + Tempo, March 2026). x402-compatible + Visa card + MCP JSON-RPC (`-32042`). | `@pact/mpp-evidence` | INTENT → PROPOSE → ACCEPT → SETTLE |
+| **UCP** | Google Universal Commerce Protocol (NRF, January 2026). Layers MCP (discovery) + AP2 (Agent Payments Protocol) + A2A. Retailers: Walmart, Target, Wayfair, Shopify, Etsy. | `@pact/ucp-evidence` | INTENT → PROPOSE → ACCEPT → SETTLE |
+| **ACP** | OpenAI Agent Commerce Protocol. ChatGPT → retailer checkout handoff via redirect URL. | Internal (walmart-sparky) | INTENT → PROPOSE → SETTLE |
+
+### UCP Integration Notes
+
+`@pact/ucp-evidence` intercepts the three phases of a Google UCP transaction:
+
+1. **MCP discovery** (`onDiscover`) — Captures the Gemini agent's MCP tool call results as INTENT + PROPOSE rounds, including the full product result set and the selected product.
+2. **AP2 payment** (`onPayment`) — Captures the AP2 payment execution as an ACCEPT round, including the `ap2_payment_id` that links payment and discovery.
+3. **Order fulfillment** (`onConfirm`) — Captures the retailer confirmation as a SETTLE round and submits the sealed bundle to the pact_ console.
+
+Sessions are keyed by `ucpSessionId` (Google's session identifier) and held in-memory across the three-phase lifecycle.
